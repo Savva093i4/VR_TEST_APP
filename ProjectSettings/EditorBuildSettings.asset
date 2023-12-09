@@ -6,10 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/XRI_Examples/Scenes/Station_02_GrabInteractables_Isolated.unity
+    guid: f2aebe5f993c67044a8fa9b95387de4e
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 4d7af11f6bdcd7243832092cc2d0c95f,
-      type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 789cb27fa05b85a4ca5c9022e5f7e0f9,
-      type: 2}
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: e7b6cf70c80d6634799bd6c8ea8a47ff, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: fba6072275013e6448e381f83d131b7f, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: e60ad326389e9b14e9f7ae2c33703862, type: 2}
