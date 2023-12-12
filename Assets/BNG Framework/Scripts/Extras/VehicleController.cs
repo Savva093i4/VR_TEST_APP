@@ -162,12 +162,12 @@ namespace BNG {
 
                 // Steering
                 if (wheel.ApplySteering) {
-                    wheel.Wheel.steerAngle = MaxSteeringAngle * SteeringAngle;
+//                    wheel.Wheel.steerAngle = MaxSteeringAngle * SteeringAngle;
                 }
 
                 // Torque
                 if (wheel.ApplyTorque) {
-                    wheel.Wheel.motorTorque = MotorTorque * torqueInput;
+//                    wheel.Wheel.motorTorque = MotorTorque * torqueInput;
                 }
 
                 UpdateWheelVisuals(wheel);

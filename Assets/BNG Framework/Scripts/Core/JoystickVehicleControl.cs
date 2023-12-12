@@ -6,8 +6,11 @@ namespace BNG {
     /// <summary>
     /// This component is similar to the JoystickControl, but is designed to be used on fast moving Rigidbodies
     /// </summary>
-    public class JoystickVehicleControl : MonoBehaviour {
+    public class JoystickVehicleControl : MonoBehaviour
+    {
 
+        [SerializeField] private Rigidbody Rigidbody;
+        [SerializeField] private float boost =100000;
         [Header("Grab Object")]
         public Grabbable JoystickGrabbable;
 
@@ -62,6 +65,37 @@ namespace BNG {
         Quaternion originalRot = Quaternion.identity;
 
         void Update() {
+
+            
+            
+            if (Input.GetKey(KeyCode.W))
+            {
+                Debug.Log(1);
+                Rigidbody.AddRelativeForce(new Vector3(0,0,1*boost),ForceMode.Force);
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                Debug.Log(1);
+                Rigidbody.AddRelativeForce(new Vector3(0,0,-1*boost),ForceMode.Force);
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+           
+                Rigidbody.AddRelativeTorque(new Vector3(0,boost,0),ForceMode.Force);
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+          
+                Rigidbody.AddRelativeTorque(new Vector3(0,-1*boost,0),ForceMode.Force);
+            }
+            
+            
+            Rigidbody.AddRelativeTorque(new Vector3(0,LeverVector.x *boost,0),ForceMode.Force);
+            Rigidbody.AddRelativeForce(new Vector3(0,0,LeverVector.y*boost),ForceMode.Force);
+            
+            
+            
+            
             if(JoystickGrabbable != null) {
                 if(JoystickGrabbable.BeingHeld) {
                     Transform lookAt = JoystickGrabbable.GetPrimaryGrabber().transform;
