@@ -1,40 +1,42 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace BNG {
+namespace BNG
+{
     /// <summary>
     /// This component is similar to the JoystickControl, but is designed to be used on fast moving Rigidbodies
     /// </summary>
     public class JoystickVehicleControl : MonoBehaviour
     {
-
         [SerializeField] private Rigidbody Rigidbody;
-        [SerializeField] private float boost =100000;
-        [Header("Grab Object")]
-        public Grabbable JoystickGrabbable;
+        [SerializeField] private float MoveSpeed = 100000;
+        [SerializeField] private float RotationSpeed = 100000;
+        private bool keyInput;
+        [Header("Grab Object")] public Grabbable JoystickGrabbable;
 
         [Header("Movement Speed")]
         [Tooltip("Set to True to Lerp towards the held hand. Set to False for Instant movement")]
         public bool UseSmoothLook = true;
+
         public float SmoothLookSpeed = 15f;
 
-        [Header("Hinge X")]
-        public Transform HingeXTransform;
+        [Header("Hinge X")] public Transform HingeXTransform;
         public float MinXAngle = -45f;
         public float MaxXAngle = 45f;
 
-        [Header("Hinge Y")]
-        public Transform HingeYTransform;
+        [Header("Hinge Y")] public Transform HingeYTransform;
         public float MinYAngle = -45f;
         public float MaxYAngle = 45f;
 
         [Header("Return To Center")]
-        [Tooltip("How fast to return to center if nothing is holding the Joystick. Set to 0 if you do not wish to Return to Center")]
+        [Tooltip(
+            "How fast to return to center if nothing is holding the Joystick. Set to 0 if you do not wish to Return to Center")]
         public float ReturnToCenterSpeed = 5f;
 
-        [Header("Deadzone")]
-        [Tooltip("Any values below this threshold will not be passed to events")]
+        [Header("Deadzone")] [Tooltip("Any values below this threshold will not be passed to events")]
         public float DeadZone = 0.001f;
 
         /// <summary>
@@ -64,88 +66,86 @@ namespace BNG {
 
         Quaternion originalRot = Quaternion.identity;
 
-        void Update() {
+        void Update()
+        {
+            // if (Input.GetKey(KeyCode.W))
+            //     MooveInput(1);
+            // if (Input.GetKey(KeyCode.S))
+            //     MooveInput(-1);
+            // if (Input.GetKey(KeyCode.D))
+            //     RotationInput(1);
+            // if (Input.GetKey(KeyCode.A))
+            //     RotationInput(-1);
+            // else
+            //     keyInput = false;
 
-            
-            
-            if (Input.GetKey(KeyCode.W))
+
+            if (JoystickGrabbable != null&&!keyInput)
             {
-                Debug.Log(1);
-                Rigidbody.AddRelativeForce(new Vector3(0,0,1*boost),ForceMode.Force);
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                Debug.Log(1);
-                Rigidbody.AddRelativeForce(new Vector3(0,0,-1*boost),ForceMode.Force);
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-           
-                Rigidbody.AddRelativeTorque(new Vector3(0,boost,0),ForceMode.Force);
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-          
-                Rigidbody.AddRelativeTorque(new Vector3(0,-1*boost,0),ForceMode.Force);
-            }
-            
-            
-            Rigidbody.AddRelativeTorque(new Vector3(0,LeverVector.x *boost,0),ForceMode.Force);
-            Rigidbody.AddRelativeForce(new Vector3(0,0,LeverVector.y*boost),ForceMode.Force);
-            
-            
-            
-            
-            if(JoystickGrabbable != null) {
-                if(JoystickGrabbable.BeingHeld) {
+                if (JoystickGrabbable.BeingHeld)
+                {
                     Transform lookAt = JoystickGrabbable.GetPrimaryGrabber().transform;
 
                     // Look towards the Grabber
-                    if (HingeXTransform) {
+                    if (HingeXTransform)
+                    {
                         originalRot = HingeXTransform.rotation;
 
                         HingeXTransform.LookAt(lookAt, Vector3.left);
 
                         angleX = HingeXTransform.localEulerAngles.x;
-                        if (angleX > 180) {
+                        if (angleX > 180)
+                        {
                             angleX -= 360;
                         }
 
                         HingeXTransform.localEulerAngles = new Vector3(Mathf.Clamp(angleX, MinXAngle, MaxXAngle), 0, 0);
 
-                        if (UseSmoothLook) {
+                        if (UseSmoothLook)
+                        {
                             Quaternion newRot = HingeXTransform.rotation;
                             HingeXTransform.rotation = originalRot;
-                            HingeXTransform.rotation = Quaternion.Lerp(HingeXTransform.rotation, newRot, Time.deltaTime * SmoothLookSpeed);
+                            HingeXTransform.rotation = Quaternion.Lerp(HingeXTransform.rotation, newRot,
+                                Time.deltaTime * SmoothLookSpeed);
                         }
                     }
-                    if (HingeYTransform) {
 
+                    if (HingeYTransform)
+                    {
                         originalRot = HingeYTransform.rotation;
 
                         HingeYTransform.LookAt(lookAt, Vector3.left);
 
                         angleY = HingeYTransform.localEulerAngles.y;
-                        if (angleY > 180) {
+                        if (angleY > 180)
+                        {
                             angleY -= 360;
                         }
 
                         HingeYTransform.localEulerAngles = new Vector3(0, Mathf.Clamp(angleY, MinYAngle, MaxYAngle), 0);
 
-                        if (UseSmoothLook) {
+                        if (UseSmoothLook)
+                        {
                             Quaternion newRot = HingeYTransform.rotation;
                             HingeYTransform.rotation = originalRot;
-                            HingeYTransform.rotation = Quaternion.Lerp(HingeYTransform.rotation, newRot, Time.deltaTime * SmoothLookSpeed);
+                            HingeYTransform.rotation = Quaternion.Lerp(HingeYTransform.rotation, newRot,
+                                Time.deltaTime * SmoothLookSpeed);
                         }
                     }
                 }
                 // Return to center if not being held
-                else if (ReturnToCenterSpeed > 0) {
-                    if (HingeXTransform) {
-                        HingeXTransform.localRotation = Quaternion.Lerp(HingeXTransform.localRotation, Quaternion.identity, Time.deltaTime * ReturnToCenterSpeed);
+                else if (ReturnToCenterSpeed > 0)
+                {
+                    if (HingeXTransform)
+                    {
+                        HingeXTransform.localRotation = Quaternion.Lerp(HingeXTransform.localRotation,
+                            Quaternion.identity, Time.deltaTime * ReturnToCenterSpeed);
                     }
-                    if (HingeYTransform) {
-                        HingeYTransform.localRotation = Quaternion.Lerp(HingeYTransform.localRotation, Quaternion.identity, Time.deltaTime * ReturnToCenterSpeed);
+
+                    if (HingeYTransform)
+                    {
+                        HingeYTransform.localRotation = Quaternion.Lerp(HingeYTransform.localRotation,
+                            Quaternion.identity, Time.deltaTime * ReturnToCenterSpeed);
                     }
                 }
 
@@ -153,15 +153,35 @@ namespace BNG {
             }
         }
 
-        public virtual void CallJoystickEvents() {
+        private void RotationInput(int x)
+        {
+            LeverVector.x = x;
+            keyInput = true;
+        }
+        private void MooveInput(int y)
+        {
+            LeverVector.y = y;
+            keyInput = true;
+        }
+
+        private void FixedUpdate()
+        {
+            Rigidbody.AddRelativeTorque(new Vector3(0, LeverVector.x * RotationSpeed, 0), ForceMode.Force);
+            Rigidbody.AddRelativeForce(new Vector3(0, 0, LeverVector.y * MoveSpeed), ForceMode.Force);
+        }
+
+        public virtual void CallJoystickEvents()
+        {
             // Call events
             angleX = HingeXTransform.localEulerAngles.x;
-            if (angleX > 180) {
+            if (angleX > 180)
+            {
                 angleX -= 360;
             }
 
             angleY = HingeYTransform.localEulerAngles.y;
-            if (angleY > 180) {
+            if (angleY > 180)
+            {
                 angleY -= 360;
             }
 
@@ -175,11 +195,15 @@ namespace BNG {
             float yInput = Mathf.Lerp(-1f, 1f, LeverPercentageY / 100);
 
             // Reset any values that are inside the deadzone
-            if (DeadZone > 0) {
-                if (Mathf.Abs(xInput) < DeadZone) {
+            if (DeadZone > 0)
+            {
+                if (Mathf.Abs(xInput) < DeadZone)
+                {
                     xInput = 0;
                 }
-                if (Mathf.Abs(yInput) < DeadZone) {
+
+                if (Mathf.Abs(yInput) < DeadZone)
+                {
                     yInput = 0;
                 }
             }
@@ -190,17 +214,20 @@ namespace BNG {
         }
 
         // Callback for lever percentage change
-        public virtual void OnJoystickChange(float leverX, float leverY) {
-            if (onJoystickChange != null) {
+        public virtual void OnJoystickChange(float leverX, float leverY)
+        {
+            if (onJoystickChange != null)
+            {
                 onJoystickChange.Invoke(leverX, leverY);
             }
         }
 
-        public virtual void OnJoystickChange(Vector2 joystickVector) {
-            if (onJoystickVectorChange != null) {
+        public virtual void OnJoystickChange(Vector2 joystickVector)
+        {
+            if (onJoystickVectorChange != null)
+            {
                 onJoystickVectorChange.Invoke(joystickVector);
             }
         }
     }
 }
-
