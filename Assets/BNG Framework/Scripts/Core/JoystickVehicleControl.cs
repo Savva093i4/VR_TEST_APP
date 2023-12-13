@@ -68,21 +68,24 @@ namespace BNG
 
         void Update()
         {
-            
-            
-            // if (Input.GetKey(KeyCode.W))
-            //     MooveInput(1);
-            // if (Input.GetKey(KeyCode.S))
-            //     MooveInput(-1);
-            // if (Input.GetKey(KeyCode.D))
-            //     RotationInput(1);
-            // if (Input.GetKey(KeyCode.A))
-            //     RotationInput(-1);
-            // else
-            //     keyInput = false;
+            if (
+                Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) ||
+                Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+            {
+                if (Input.GetKey(KeyCode.W))
+                    MooveInput(1);
+                if (Input.GetKey(KeyCode.S))
+                    MooveInput(-1);
+                if (Input.GetKey(KeyCode.D))
+                    RotationInput(1);
+                if (Input.GetKey(KeyCode.A))
+                    RotationInput(-1);
+            }
+            else
+                keyInput = false;
 
 
-            if (JoystickGrabbable != null&&!keyInput)
+            if (JoystickGrabbable != null && !keyInput)
             {
                 if (JoystickGrabbable.BeingHeld)
                 {
@@ -160,6 +163,7 @@ namespace BNG
             LeverVector.x = x;
             keyInput = true;
         }
+
         private void MooveInput(int y)
         {
             LeverVector.y = y;
