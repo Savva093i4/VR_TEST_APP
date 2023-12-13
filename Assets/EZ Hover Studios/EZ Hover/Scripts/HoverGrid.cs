@@ -307,7 +307,7 @@ namespace EZHover
                 Gizmos.color = Color.yellow;
             }
 
-            Gizmos.DrawSphere(point.HitPos, 1f);
+            Gizmos.DrawSphere(point.HitPos, 0.1f);
         }
 
         private void DrawGridSquare(HoverPoint point)
