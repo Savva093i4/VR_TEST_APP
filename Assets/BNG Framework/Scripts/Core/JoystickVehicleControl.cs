@@ -68,6 +68,8 @@ namespace BNG
 
         void Update()
         {
+            
+            
             // if (Input.GetKey(KeyCode.W))
             //     MooveInput(1);
             // if (Input.GetKey(KeyCode.S))
