@@ -17,4 +17,6 @@ public class SpaceShip : MonoBehaviour
         rigidbody.AddRelativeTorque(new Vector3(0, LeverVector.x * RotationSpeed, 0), ForceMode.Force);
         rigidbody.AddRelativeForce(new Vector3(0, 0, LeverVector.y * MoveSpeed), ForceMode.Force);
     }
+
+    public void ChangeAltitude(float percentage) => Debug.Log(percentage);
 }

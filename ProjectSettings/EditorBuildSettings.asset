@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/BNG Framework/Scenes/Vehicle Example.unity
     guid: d96233ee44d985d4fb8dc23a907c06eb
   - enabled: 1
-    path: Assets/BNG Framework/Scenes/XR Demo.unity
+    path: Assets/XR Demo.unity
     guid: a1360534006d3f845bc79b46b93cfec5
   - enabled: 1
     path: Assets/BNG Framework/Scenes/Scene Transitioning.unity
