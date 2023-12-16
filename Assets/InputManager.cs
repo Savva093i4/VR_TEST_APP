@@ -5,9 +5,10 @@ using UnityEngine.XR;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputType inputType { get; private set; } = InputType.PC;
+    public static InputType inputType { get; private set; }
 
-    public Camera PC_Camera;
+    [SerializeField] private Camera PC_Camera;
+    [SerializeField] private List<GameObject> XrGO;
 
     private void Start()
     {
@@ -19,7 +20,20 @@ public class InputManager : MonoBehaviour
         {
             Debug.Log("VR");
             PC_Camera.gameObject.SetActive(false);
+
+
             inputType = InputType.VR;
+        }
+        else
+        {
+            Debug.Log("PC");
+
+            foreach (var go in XrGO)
+            {
+                go.SetActive(false);
+            }
+
+            inputType = InputType.PC;
         }
     }
 }

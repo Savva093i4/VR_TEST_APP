@@ -19,4 +19,6 @@ public class SpaceShip : MonoBehaviour
     }
 
     public void ChangeAltitude(float percentage) => Debug.Log(percentage);
+    
+    
 }
