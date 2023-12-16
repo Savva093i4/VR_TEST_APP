@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.XR;
 
 namespace BNG
 {
@@ -65,6 +66,17 @@ namespace BNG
         public float angleY;
 
         Quaternion originalRot = Quaternion.identity;
+
+        private void Start()
+        {
+            List<XRDisplaySubsystem> displaySubsystems = new List<XRDisplaySubsystem>();
+     
+            SubsystemManager.GetInstances(displaySubsystems);
+            foreach (var subsystem in displaySubsystems)
+            {
+                Debug.Log(1);
+            }
+        }
 
         void Update()
         {
