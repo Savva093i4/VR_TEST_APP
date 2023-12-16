@@ -12,16 +12,10 @@ namespace BNG
     /// </summary>
     public class JoystickVehicleControl : MonoBehaviour
     {
-        [SerializeField] private Rigidbody Rigidbody;
-        [SerializeField] private float MoveSpeed = 100000;
-        [SerializeField] private float RotationSpeed = 100000;
-        private bool keyInput;
         [Header("Grab Object")] public Grabbable JoystickGrabbable;
-
         [Header("Movement Speed")]
         [Tooltip("Set to True to Lerp towards the held hand. Set to False for Instant movement")]
         public bool UseSmoothLook = true;
-
         public float SmoothLookSpeed = 15f;
 
         [Header("Hinge X")] public Transform HingeXTransform;
@@ -60,23 +54,13 @@ namespace BNG
         /// Current Percentage of joystick on Y axis (forward / back)
         /// </summary>
         public float LeverPercentageY = 0;
-
-        public Vector2 LeverVector;
+        
         public float angleX;
         public float angleY;
 
         Quaternion originalRot = Quaternion.identity;
 
-        private void Start()
-        {
-            List<XRDisplaySubsystem> displaySubsystems = new List<XRDisplaySubsystem>();
      
-            SubsystemManager.GetInstances(displaySubsystems);
-            foreach (var subsystem in displaySubsystems)
-            {
-                Debug.Log(1);
-            }
-        }
 
         void Update()
         {
@@ -93,11 +77,8 @@ namespace BNG
                 if (Input.GetKey(KeyCode.A))
                     RotationInput(-1);
             }
-            else
-                keyInput = false;
 
 
-            if (JoystickGrabbable != null && !keyInput)
             {
                 if (JoystickGrabbable.BeingHeld)
                 {
@@ -172,21 +153,13 @@ namespace BNG
 
         private void RotationInput(int x)
         {
-            LeverVector.x = x;
-            keyInput = true;
         }
 
         private void MooveInput(int y)
         {
-            LeverVector.y = y;
-            keyInput = true;
         }
 
-        private void FixedUpdate()
-        {
-            Rigidbody.AddRelativeTorque(new Vector3(0, LeverVector.x * RotationSpeed, 0), ForceMode.Force);
-            Rigidbody.AddRelativeForce(new Vector3(0, 0, LeverVector.y * MoveSpeed), ForceMode.Force);
-        }
+      
 
         public virtual void CallJoystickEvents()
         {
@@ -226,9 +199,9 @@ namespace BNG
                 }
             }
 
-            LeverVector = new Vector2(xInput, yInput);
+            SpaceShip.LeverVector = new Vector2(xInput, yInput);
 
-            OnJoystickChange(LeverVector);
+            OnJoystickChange( SpaceShip.LeverVector);
         }
 
         // Callback for lever percentage change
