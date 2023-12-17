@@ -473,7 +473,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 64145901173982490}
-  - {fileID: 1472625135}
   - {fileID: 6691768087006776195}
   - {fileID: 966261301655803230}
   - {fileID: 732848321}
@@ -523,6 +522,7 @@ MonoBehaviour:
   rigidbody: {fileID: 199171100}
   MoveSpeed: 30
   RotationSpeed: 20
+  TorqueSpeed: 5
 --- !u!1001 &270996977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -850,6 +850,7 @@ GameObject:
   - component: {fileID: 732848321}
   - component: {fileID: 732848320}
   - component: {fileID: 732848319}
+  - component: {fileID: 732848322}
   m_Layer: 0
   m_Name: PC Camera
   m_TagString: Untagged
@@ -966,6 +967,18 @@ Transform:
   m_Father: {fileID: 199171099}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 21.72, y: 0, z: 0}
+--- !u!114 &732848322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732848318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd61b527297399c4f8a116e462951eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &903861562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,10 +1625,10 @@ Transform:
   m_GameObject: {fileID: 1472625130}
   m_LocalRotation: {x: 0.50000006, y: -0.50000006, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0.8970001, z: -0.40699998}
-  m_LocalScale: {x: 0.10000002, y: 0.36843994, z: 0.089999974}
+  m_LocalScale: {x: 0.100000024, y: 0.3684399, z: 0.08999997}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 199171099}
+  m_Father: {fileID: 1773203975}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 90}
 --- !u!1001 &1484866203
@@ -2085,6 +2098,7 @@ Transform:
   - {fileID: 4747514119983529667}
   - {fileID: 1863594706050161740}
   - {fileID: 1490958860}
+  - {fileID: 1472625135}
   m_Father: {fileID: 199171099}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42127,9 +42141,9 @@ MonoBehaviour:
   gridSize: {x: 14.8, y: 0.39, z: 16.8}
   columnCount: 3
   rowCount: 3
-  stabalizeForce: 1
+  stabalizeForce: 20
   stabalizeZ: 1
-  stabalizeX: 0
+  stabalizeX: 1
   alwaysRenderGizmos: 0
   gridColour: {r: 0, g: 1, b: 0.6943891, a: 0.6509804}
 --- !u!23 &4945805543931704409
