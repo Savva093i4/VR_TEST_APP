@@ -522,7 +522,7 @@ MonoBehaviour:
   rigidbody: {fileID: 199171100}
   MoveSpeed: 30
   RotationSpeed: 20
-  TorqueSpeed: 5
+  TorqueSpeed: 1
 --- !u!1001 &270996977
 PrefabInstance:
   m_ObjectHideFlags: 0
