@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Prorotype.unity
+    guid: d9cdc37ebb08bc4448e18baad7b123ed
+  - enabled: 1
     path: Assets/BNG Framework/Scenes/Vehicle Example.unity
     guid: d96233ee44d985d4fb8dc23a907c06eb
   - enabled: 1

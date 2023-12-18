@@ -124,6 +124,23 @@ struct Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_StaticFields
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float WheelCollider_get_radius_m68CC3DE301E0C6226E85F99D853365DA1244CD1F (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481* __this, const RuntimeMethod* method) 
+{
+	typedef float (*WheelCollider_get_radius_m68CC3DE301E0C6226E85F99D853365DA1244CD1F_ftn) (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481*);
+	static WheelCollider_get_radius_m68CC3DE301E0C6226E85F99D853365DA1244CD1F_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (WheelCollider_get_radius_m68CC3DE301E0C6226E85F99D853365DA1244CD1F_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.WheelCollider::get_radius()");
+	float icallRetVal = _il2cpp_icall_func(__this);
+	return icallRetVal;
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelCollider_set_radius_m43AA4113465733E26DD8B01774C9AD6C32424184 (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481* __this, float ___0_value, const RuntimeMethod* method) 
+{
+	typedef void (*WheelCollider_set_radius_m43AA4113465733E26DD8B01774C9AD6C32424184_ftn) (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481*, float);
+	static WheelCollider_set_radius_m43AA4113465733E26DD8B01774C9AD6C32424184_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (WheelCollider_set_radius_m43AA4113465733E26DD8B01774C9AD6C32424184_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.WheelCollider::set_radius(System.Single)");
+	_il2cpp_icall_func(__this, ___0_value);
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelCollider_set_motorTorque_m4958AAF7D867CF7570420F9BAFAF04DC904F02A8 (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481* __this, float ___0_value, const RuntimeMethod* method) 
 {
 	typedef void (*WheelCollider_set_motorTorque_m4958AAF7D867CF7570420F9BAFAF04DC904F02A8_ftn) (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481*, float);
@@ -132,6 +149,23 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelCollider_set_motorTorque_m4958AAF7D
 	_il2cpp_icall_func = (WheelCollider_set_motorTorque_m4958AAF7D867CF7570420F9BAFAF04DC904F02A8_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.WheelCollider::set_motorTorque(System.Single)");
 	_il2cpp_icall_func(__this, ___0_value);
 }
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelCollider_set_brakeTorque_mB9B216C57C275470907C7DB35185E2F192DC8DAB (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481* __this, float ___0_value, const RuntimeMethod* method) 
+{
+	typedef void (*WheelCollider_set_brakeTorque_mB9B216C57C275470907C7DB35185E2F192DC8DAB_ftn) (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481*, float);
+	static WheelCollider_set_brakeTorque_mB9B216C57C275470907C7DB35185E2F192DC8DAB_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (WheelCollider_set_brakeTorque_mB9B216C57C275470907C7DB35185E2F192DC8DAB_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.WheelCollider::set_brakeTorque(System.Single)");
+	_il2cpp_icall_func(__this, ___0_value);
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float WheelCollider_get_steerAngle_mF0A004554F1509F1DA233AC71A7A2C9C36CC9EE5 (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481* __this, const RuntimeMethod* method) 
+{
+	typedef float (*WheelCollider_get_steerAngle_mF0A004554F1509F1DA233AC71A7A2C9C36CC9EE5_ftn) (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481*);
+	static WheelCollider_get_steerAngle_mF0A004554F1509F1DA233AC71A7A2C9C36CC9EE5_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (WheelCollider_get_steerAngle_mF0A004554F1509F1DA233AC71A7A2C9C36CC9EE5_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.WheelCollider::get_steerAngle()");
+	float icallRetVal = _il2cpp_icall_func(__this);
+	return icallRetVal;
+}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelCollider_set_steerAngle_m7BF83B27D8956355F873537939BE9F35CF3113C3 (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481* __this, float ___0_value, const RuntimeMethod* method) 
 {
 	typedef void (*WheelCollider_set_steerAngle_m7BF83B27D8956355F873537939BE9F35CF3113C3_ftn) (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481*, float);
@@ -139,6 +173,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelCollider_set_steerAngle_m7BF83B27D8
 	if (!_il2cpp_icall_func)
 	_il2cpp_icall_func = (WheelCollider_set_steerAngle_m7BF83B27D8956355F873537939BE9F35CF3113C3_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.WheelCollider::set_steerAngle(System.Single)");
 	_il2cpp_icall_func(__this, ___0_value);
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float WheelCollider_get_rpm_m7AFAA813ED3965AE4B2A2E7CBC6FB2B26B68ED52 (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481* __this, const RuntimeMethod* method) 
+{
+	typedef float (*WheelCollider_get_rpm_m7AFAA813ED3965AE4B2A2E7CBC6FB2B26B68ED52_ftn) (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481*);
+	static WheelCollider_get_rpm_m7AFAA813ED3965AE4B2A2E7CBC6FB2B26B68ED52_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (WheelCollider_get_rpm_m7AFAA813ED3965AE4B2A2E7CBC6FB2B26B68ED52_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.WheelCollider::get_rpm()");
+	float icallRetVal = _il2cpp_icall_func(__this);
+	return icallRetVal;
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WheelCollider_GetWorldPose_m8C41FA2AE9ED543AB94A6E3226523A2FE83FA890 (WheelCollider_t4E35407C7AFEFA3DB30E9FFE3C38C9A5C5933481* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* ___0_pos, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974* ___1_quat, const RuntimeMethod* method) 
 {
